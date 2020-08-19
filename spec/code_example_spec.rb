@@ -3,10 +3,10 @@ require_relative './spec_helper.rb'
 def check_code_example_conditions(o_obj, buttons_class: 'buttons', button_class: 'button')
   expect(o_obj.xpath('/div[@class="code-examples"]/div[@class="'+buttons_class+' examples"]/ul/li/a[@class="'+button_class+'"][@target="ruby"][.="Ruby"]')).not_to be_empty
   expect(o_obj.xpath('/div[@class="code-examples"]/div[@class="'+buttons_class+' examples"]/ul/li/a[@class="'+button_class+'"][@target="python"][.="Python"]')).not_to be_empty
-  ruby_example = o_obj.xpath('/div[@class="code-examples"]/div[@class="highlight example ruby"]/pre/code[@class="language ruby"][@data-lang="ruby"]')
+  ruby_example = o_obj.xpath('/div[@class="code-examples"]/div[@class="highlight example ruby"]/pre/code[@class="ruby"][@data-lang="ruby"]')
   expect(ruby_example).not_to be_empty
   expect(ruby_example.first.content).to eq 'puts "Hello World"'
-  python_example = o_obj.xpath('/div[@class="code-examples"]/div[@class="highlight example python"]/pre/code[@class="language python"][@data-lang="python"]')
+  python_example = o_obj.xpath('/div[@class="code-examples"]/div[@class="highlight example python"]/pre/code[@class="python"][@data-lang="python"]')
   expect(python_example).not_to be_empty
   expect(python_example.first.content).to eq 'print "Hello World"'
 end
